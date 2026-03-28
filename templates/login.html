@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Identification - Chess Arena</title>
+    <style>
+        body { background: #121212; color: white; font-family: 'Inter', sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+        .login-box { background: #1e1e1e; padding: 40px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); text-align: center; border: 1px solid #333; width: 300px; }
+        h1 { color: #27ae60; margin-bottom: 20px; }
+        input { width: 100%; padding: 12px; margin-bottom: 20px; border-radius: 6px; border: 1px solid #444; background: #252525; color: white; box-sizing: border-box; }
+        button { width: 100%; padding: 12px; background: #27ae60; border: none; border-radius: 6px; color: white; font-weight: bold; cursor: pointer; }
+        button:hover { background: #2ecc71; }
+    </style>
+</head>
+<body>
+    <div class="login-box">
+        <h1>♟️ Chess Arena</h1>
+        <p>Entrez votre pseudo pour jouer</p>
+        <form action="/login" method="POST">
+            <input type="text" name="username" placeholder="Pseudo (ex: Charles)" required autofocus>
+            <button type="submit">SE CONNECTER</button>
+        </form>
+    </div>
+</body>
+</html>
