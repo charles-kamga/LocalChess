@@ -3,24 +3,99 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Identification - Chess Arena</title>
+    <title>Chess Arena Pro — Connexion</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
-        body { background: #121212; color: white; font-family: 'Inter', sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
-        .login-box { background: #1e1e1e; padding: 40px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); text-align: center; border: 1px solid #333; width: 300px; }
-        h1 { color: #27ae60; margin-bottom: 20px; }
-        input { width: 100%; padding: 12px; margin-bottom: 20px; border-radius: 6px; border: 1px solid #444; background: #252525; color: white; box-sizing: border-box; }
-        button { width: 100%; padding: 12px; background: #27ae60; border: none; border-radius: 6px; color: white; font-weight: bold; cursor: pointer; }
-        button:hover { background: #2ecc71; }
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            background: #0d0d0d;
+            font-family: 'Inter', sans-serif;
+            min-height: 100vh;
+            display: flex; align-items: center; justify-content: center;
+            overflow: hidden;
+        }
+        /* Subtle animated background */
+        body::before {
+            content: '';
+            position: fixed; inset: 0; z-index: 0;
+            background: radial-gradient(ellipse at 30% 60%, rgba(0,184,148,0.08) 0%, transparent 60%),
+                        radial-gradient(ellipse at 70% 30%, rgba(108,92,231,0.06) 0%, transparent 50%);
+            animation: bg-pulse 8s ease-in-out infinite;
+        }
+        @keyframes bg-pulse {
+            0%, 100% { opacity: 1; }
+            50%       { opacity: 0.6; }
+        }
+        .card {
+            position: relative; z-index: 1;
+            background: #161616;
+            border: 1px solid #2a2a2a;
+            border-radius: 20px;
+            padding: 48px 40px;
+            width: 360px;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+            animation: card-in 0.4s cubic-bezier(0.22,1,0.36,1);
+        }
+        @keyframes card-in {
+            from { opacity: 0; transform: translateY(24px) scale(0.97); }
+            to   { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        .logo {
+            font-size: 52px; text-align: center;
+            display: block; margin-bottom: 8px;
+            filter: drop-shadow(0 0 16px rgba(0,184,148,0.5));
+        }
+        h1 {
+            text-align: center;
+            font-size: 22px; font-weight: 900;
+            color: #00b894; margin-bottom: 6px;
+            letter-spacing: 1px;
+        }
+        .subtitle {
+            text-align: center; color: #636e72;
+            font-size: 13px; margin-bottom: 36px;
+        }
+        label {
+            display: block; font-size: 11px; font-weight: 700;
+            color: #636e72; text-transform: uppercase; letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+        input[type=text] {
+            width: 100%; padding: 14px 16px;
+            background: #1e1e1e; border: 1px solid #333;
+            border-radius: 10px; color: #fff;
+            font-size: 15px; font-family: inherit;
+            outline: none; transition: 0.2s;
+        }
+        input[type=text]:focus { border-color: #00b894; box-shadow: 0 0 0 3px rgba(0,184,148,0.12); }
+        input[type=text]::placeholder { color: #555; }
+        button {
+            width: 100%; margin-top: 20px; padding: 15px;
+            background: #00b894; border: none; border-radius: 10px;
+            color: white; font-size: 15px; font-weight: 900;
+            letter-spacing: 1px; text-transform: uppercase;
+            cursor: pointer; transition: 0.2s;
+        }
+        button:hover { background: #00a381; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,184,148,0.3); }
+        button:active { transform: translateY(0); }
+        .footer {
+            text-align: center; margin-top: 28px;
+            color: #2d2d2d; font-size: 11px;
+        }
     </style>
 </head>
 <body>
-    <div class="login-box">
-        <h1>♟️ Chess Arena</h1>
-        <p>Entrez votre pseudo pour jouer</p>
+    <div class="card">
+        <span class="logo">♟️</span>
+        <h1>CHESS ARENA PRO</h1>
+        <p class="subtitle">Réseau UY1 — Entrez votre pseudo pour jouer</p>
         <form action="/login" method="POST">
-            <input type="text" name="username" placeholder="Pseudo (ex: Charles)" required autofocus>
-            <button type="submit">SE CONNECTER</button>
+            <label for="un">Pseudo</label>
+            <input id="un" type="text" name="username" placeholder="ex: Charles" required autofocus maxlength="30">
+            <button type="submit">SE CONNECTER →</button>
         </form>
+        <p class="footer">Chess Arena Pro • LAN only</p>
     </div>
 </body>
 </html>
